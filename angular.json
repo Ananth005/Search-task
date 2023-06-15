@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "student-register": {
+    "search-task": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/student-register",
+            "outputPath": "dist/search-task",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -25,9 +25,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css","node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.min.js"]
           },
           "configurations": {
             "production": {
@@ -60,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "student-register:build:production"
+              "browserTarget": "search-task:build:production"
             },
             "development": {
-              "browserTarget": "student-register:build:development"
+              "browserTarget": "search-task:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "student-register:build"
+            "browserTarget": "search-task:build"
           }
         },
         "test": {
@@ -96,6 +97,6 @@
     }
   },
   "cli": {
-    "analytics": "3dd7c58e-a450-4652-a52f-220735de3fbd"
+    "analytics": false
   }
 }
