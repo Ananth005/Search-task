@@ -1,0 +1,85 @@
+<div class="container py-5 h-100 ">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-12 col-md-8 col-lg-6 ">
+      <div class="card bg-dark " style="border-radius: 1rem;">
+        <div class="card-body p-5 text-center">
+
+          <div class="mb-md-5 mt-md-4 pb-5">
+
+            <h2 class="fw-bold mb-md-5 text-uppercase text-white">Login</h2>
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="" >
+              <!-- ngModel #username="ngModel" [ngClass]="{'is-invalid':username.touched && username.invalid}" [value]="username" -->
+              <div class="form-floating mb-md-5">
+                <input type="text" class="form-control " id="floatingInput" placeholder="name" 
+                  name="username"    [(ngModel)]="username"required #usernameInput="ngModel">
+                <label for="floatingInput">Username or Email</label>
+                <div class="alert alert-danger " *ngIf="usernameInput.invalid && usernameInput.touched">
+                  <div *ngIf="usernameInput.errors?.['required']">Username or Email is required.</div>
+                </div>
+               
+                <!-- <div *ngIf="username.errors?.['required']" class="mt-2">
+                  <div class="alert alert-danger" *ngIf="username.touched && username.invalid "> username is
+                    required....
+                  </div>
+                </div> -->
+              </div>
+              <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" -->
+
+              <!-- <div *ngIf="username.errors?.['pattern']">
+                <div class="alert alert-danger" *ngIf="username.touched && username.invalid "> invalid email address..</div>
+              </div> -->
+              <div class="form-floating mb-4">
+                <input type="password" id="password" class="form-control " placeholder="password" name="password"
+                   minlength="8" required [(ngModel)]="password" #passwordInput="ngModel"/>
+                <label for="password">Password</label>
+                <div  *ngIf="passwordInput.invalid && passwordInput.touched">
+                  <div class="alert alert-danger" *ngIf="passwordInput.errors?.['required']">Password is required.</div>
+                </div>
+                <div *ngIf="passwordInput.invalid && passwordInput.touched">
+                  <div  class="alert alert-danger"*ngIf="passwordInput.errors?.['minlength']" >The password must
+                    contain at least 8 or more characters.</div>
+                </div>
+                <!-- <div *ngIf="password.errors?.['required']" class="mt-2">
+                  <div class="alert alert-danger" *ngIf="password.touched && password.invalid "> password is
+                    required....
+                  </div>
+                </div>
+                <div *ngIf="password.errors?.['minlength']" class="mt-2">
+                  <div class="alert alert-danger" *ngIf="password.touched && password.invalid ">The password must
+                    contain at least 8 or more characters</div>
+                </div> -->
+
+              </div>
+              <!-- ngModel #password="ngModel" [ngClass]="{'is-invalid':password.touched && password.invalid}" -->
+              <!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" -->
+              <div   class="text-white mb-3"><label ><input type="checkbox" ngModel #rememberMe="ngModel" name="rememberMe" value="rememberMe">Remember me</label>
+              </div>
+
+
+              <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="javascript:void(0);"
+                  routerLink="edit_password">Forgot password?</a></p>
+
+              <button class="btn btn-secondary  bg-gradient btn-lg px-5" type="submit" [disabled]="f.invalid">Login</button>
+
+
+
+
+              <div class="mt-4">
+                <p class=" text-white">Don't have an account? <a href="javascript:void(0);" routerLink="/register"
+                    class="text-white-50 fw-bold">Register
+                    here</a>
+                </p>
+              </div>
+              <!-- <div class="col-md-6 form-floating">
+                <input type="text" class="form-control" id="floatingInput1" placeholder="name"[(ngModel)]="usernam"
+                  name="usernam" required >
+                <label for="floatingInput1">Username or Email</label>
+                
+              </div> -->
+                
+            
+                
+              
+
+
+            </form>

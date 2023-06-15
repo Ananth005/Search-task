@@ -1,0 +1,177 @@
+<section class="h-100 bg-dark ">
+    <div class="container py-1 ">
+        <div class="row">
+            <div class="col d-flex justify-content-center align-items-center ">
+                <div class="card card-registration my-4 col-10 " style="border-radius: 1rem;">
+                    <div class="row g-0 ">
+                        <div class="col-xl-12 ">
+                            <div class="card-body p-5 text-black  ">
+                                <h3 class="mb-5 text-uppercase fw-bold text-center">Student registration</h3>
+                                <form #r="ngForm" (ngSubmit)="onSubmit(r)">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-floating">
+                                                <input type="text" id="firstName" class="form-control "
+                                                    placeholder="firstName" name="first_name" ngModel
+                                                    #first_name="ngModel" required
+                                                    [ngClass]="{'is-invalid':first_name.touched && first_name.invalid}" />
+                                                <label class="form-label" for="firstName">First name</label>
+                                            </div>
+                                            <div *ngIf="first_name.errors?.['required']">
+                                                <div class="alert alert-danger"
+                                                    *ngIf="first_name.touched && first_name.invalid ">First name is
+                                                    required</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-floating">
+                                                <input type="text" id="lastName" class="form-control "
+                                                    placeholder="lastName" name="last_name" ngModel #last_name="ngModel"
+                                                    required
+                                                    [ngClass]="{'is-invalid':last_name.touched && last_name.invalid}" />
+                                                <label class="form-label" for="lastName">Last name</label>
+                                            </div>
+                                            <div *ngIf="last_name.errors?.['required']">
+                                                <div class="alert alert-danger"
+                                                    *ngIf="last_name.touched && last_name.invalid ">Lastname is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-floating ">
+                                                <input type="number" id="Rnumber" class="form-control " name="reg_no"
+                                                    placeholder="r-number" ngModel #reg_no="ngModel" required
+                                                    [ngClass]="{'is-invalid':reg_no.touched && reg_no.invalid}" />
+                                                <label class="form-label" for="Rnumber">Register Number</label>
+                                            </div>
+                                            <div *ngIf="reg_no.errors?.['required']">
+                                                <div class="alert alert-danger"
+                                                    *ngIf="reg_no.touched && reg_no.invalid ">Register number is
+                                                    required</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-floating">
+                                                <input type="text" id="username" class="form-control "
+                                                    placeholder="username" ngModel name="username" #username="ngModel"
+                                                    required
+                                                    [ngClass]="{'is-invalid':username.touched && username.invalid}" />
+                                                <label class="form-label" for="username">user name</label>
+                                            </div>
+                                            <div *ngIf="username.errors?.['required']">
+                                                <div class="alert alert-danger"
+                                                    *ngIf="username.touched && username.invalid ">Username is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="email" class="form-control " placeholder="email"
+                                            name="email" ngModel #email="ngModel" required
+                                            [ngClass]="{'is-invalid':email.touched && email.invalid}"
+                                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+                                        <label class="form-label" for="email">Email ID</label>
+                                    </div>
+                                    <div *ngIf="email.errors?.['required']">
+                                        <div class="alert alert-danger" *ngIf="email.touched && email.invalid "> email
+                                            address is required....</div>
+                                    </div>
+                                    <div *ngIf="email.errors?.['pattern']">
+                                        <div class="alert alert-danger" *ngIf="email.touched && email.invalid "> invalid
+                                            email address..</div>
+                                    </div>
+
+
+                                    <div class="row form-group">
+                                        <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                                        <div class="col-sm-10">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="gender" ngModel
+                                                    #gender="ngModel" id="gridRadios1" value="female" checked>
+                                                <label class="form-check-label" for="gridRadios1">
+                                                    Female
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="gender"
+                                                    id="gridRadios2" ngModel #gender="ngModel" value="male">
+                                                <label class="form-check-label" for="gridRadios2">
+                                                    Male
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline mb-4">
+                                                <input class="form-check-input" type="radio" name="gender" ngModel
+                                                    #gender="ngModel" id="gridRadios3" value="other">
+                                                <label class="form-check-label" for="gridRadios3">
+                                                    Other
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-floating mb-2">
+                                        <textarea class="form-control " id="Address" rows="3"
+                                            placeholder="Enter Address here" required ngModel #address="ngModel"
+                                            name="address" [ngClass]="{'is-invalid':address.touched && address.invalid}"></textarea>
+                                        <label for="Address">Enter Address here</label>
+                                        <div class="form-floating  mt-2">
+                                            <input type="number" id="Pnumber" class="form-control " name="phonenumber"
+                                                placeholder="Pnumber" ngModel #phonenumber="ngModel" required
+                                                [ngClass]="{'is-invalid':phonenumber.touched && phonenumber.invalid}" />
+                                            <label class="form-label" for="Pnumber">Phone Number</label>
+                                        </div>
+                                        <div *ngIf="phonenumber.errors?.['required']">
+                                            <div class="alert alert-danger"
+                                                *ngIf="phonenumber.touched && phonenumber.invalid "> Phone number is
+                                                required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-floating mb-2">
+                                        <input type="text" id="password1" class="form-control " placeholder="password"
+                                            name="password" ngModel #password="ngModel" required
+                                            [ngClass]="{'is-invalid':password.touched && password.invalid}"
+                                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                                        <label class="form-label" for="password1">Enter Password</label>
+                                        <div *ngIf="password.errors?.['pattern']">
+                                            <div class="alert alert-danger"
+                                                *ngIf="password.touched && password.invalid ">Must contain at least one
+                                                number and one uppercase and lowercase letter, and at least 8 or more
+                                                characters</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="date" id="dob" class="form-control " placeholder="DOB" name="dob"
+                                            ngModel #dob="ngModel" required
+                                            [ngClass]="{'is-invalid':dob.touched && dob.invalid}" />
+                                        <label class="form-label" for="dob">DOB</label>
+                                    </div>
+
+                                    <div class="d-flex justify-content-center">
+                                        <button type="submit" class="btn btn-secondary bg-gradient btn-lg mt-3" [disabled]="r.invalid">Submit</button>
+                                    </div>
+                                    <div class="mt-4 text-center">
+                                        <p class=" text-black ">Already have an account? <a href="javascript:void(0);"
+                                                routerLink="" class="text-black-50 fw-bold">Login
+                                                here</a>
+                                        </p>
+                                    </div>
+                                </form>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
