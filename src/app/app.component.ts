@@ -33,10 +33,9 @@ export class AppComponent {
   filteredSuggestions: { baseAsset: string }[] = [];
   showSuggestionsFlag: boolean = false;
   Showtable: boolean = false;
-  // p: number = 1;
-  pagedObjects: any[] = []; // Array to store objects for the current page
-  currentPage = 1; // Current page number
-  itemsPerPage = 10; // Number of items to display per page
+  pagedObjects: any[] = [];
+  currentPage = 1;
+  itemsPerPage = 10;
 
 
   constructor(private http: HttpClient) { }
@@ -71,19 +70,10 @@ export class AppComponent {
       }
     );
   }
-  // get filteredCurrencies() {
-  //   const searchLower = this.searchTerm.toLowerCase();
-  //   return console.log(this.currencies.filter(([key, value]) => key.toLowerCase().includes(searchLower) || value.toLowerCase().includes(searchLower)));
-  // }
-
   public showSuggestions(): void {
     this.filteredSuggestions = this.data.filter(suggestion =>
       suggestion.baseAsset.toLowerCase().includes(this.searchInput.toLowerCase())
     );
-    // console.log(this.filteredSuggestions);
-    // this.filteredSuggestions.forEach(obj => {
-    //   console.log(obj.baseAsset);
-    // });
 
     this.showSuggestionsFlag = this.filteredSuggestions.length > 0;
   }
@@ -93,7 +83,6 @@ export class AppComponent {
     // console.log(searchResults);
     this.filteredObjects = [];
     searchResults.forEach((obj: {}) => {
-      // console.log(obj.symbol, "at", obj.askPrice);
       this.filteredObjects.push(obj);
       // const price=obj.askPrice;
       this.Showtable = true;
@@ -107,7 +96,7 @@ export class AppComponent {
   }
 
   getTotalPages() {
-    return Math.ceil(this.data.length / 10); // Assuming 10 items per page
+    return Math.ceil(this.data.length / 10);
   }
 
   getPageNumbers() {

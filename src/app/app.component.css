@@ -10,7 +10,6 @@
     z-index: 1;
     background-color: #fff;
     border-radius: 10px;
-    /* Additional styling for suggestions div */
   }
   
   .suggestions .suggestion-item {
@@ -21,16 +20,4 @@
     background-color: lightgray;
   }
   
-  .custom-pagination ul.pagination li a {
-    color: black;
-  }
-  
-  .custom-pagination ul.pagination li.active a {
-    background-color: black;
-    color: white;
-  }
-  
-  .custom-pagination ul.pagination li.disabled a {
-    color: gray;
-  }
   
